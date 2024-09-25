@@ -13,6 +13,8 @@ import java.util.List;
 public class MainConsultasJPQL {
 
     public static void main(String[] args) {
+        //REPOSITORIO-> https://github.com/gerardomagni/jpqlquerys.git
+
         //buscarFacturas();
         //buscarFacturasActivas();
         //buscarFacturasXNroComprobante();
