@@ -88,4 +88,24 @@ public class ClienteManager {
 
         return "";
     }
+
+    // 1. Listar todos los clientes registrados en el sistema
+    public List<Cliente> getTodosLosClientes() {
+        String jpql = "SELECT c FROM Cliente c";
+        Query query = em.createQuery(jpql);
+        return query.getResultList();
+    }
+
+    /*14. Explicación breve de EXISTIS y un ejemplo para buscar facturas asociadas a un cliente:
+     *
+     * La cláusula EXISTS en JPQL se usa para comprobar si existe al menos un registro que cumpla una condición dentro de una subconsulta.
+     * No devuelve datos, sino un valor booleano (verdadero o falso).
+     *
+     * */
+    public List<Cliente> getClientesConFacturas() {
+        String jpql = "SELECT c FROM Cliente c WHERE EXISTS (" +
+                "SELECT f FROM Factura f WHERE f.cliente.id = c.id)";
+        Query query = em.createQuery(jpql);
+        return query.getResultList();
+    }
 }

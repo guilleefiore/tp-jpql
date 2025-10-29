@@ -208,7 +208,6 @@ public class Main {
         }
     }
 }
-
 /*
 
 Manejo del Ciclo de Estados en JPA
