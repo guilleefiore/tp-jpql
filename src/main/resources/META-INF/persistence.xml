@@ -15,15 +15,22 @@
         <class>org.example.Factura</class>
         <class>org.example.FacturaDetalle</class>
 
-
         <properties>
+            <!-- Configuración de conexión a H2 en memoria -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:jpql_db;DB_CLOSE_DELAY=-1"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
-            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Configuración de Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Configuración opcional (más prolija en consola) -->
+            <property name="hibernate.use_sql_comments" value="true"/>
         </properties>
+
     </persistence-unit>
 </persistence>
